@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <lik rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>LOGIN</title>
+</head>
+<body>
+    <div class="container">
+        <h1>INGRESE USUARIO:</h1>
+        <form action="" method="POST">
+            <input type="text" placeholder="usuario" name="usuario" value="{{request.form.usuario}}">        
+            <input type="password" placeholder="contraseña" name="password" value="{{request.form.contraseña}}">        
+            <input class="btn btn-default" type="submit" value="Login">
+        </form>
+        {% if error %}
+        <p class="error"><strong>error</strong>{{error}}</p>
+        {% endif %}
+    </div>   
+</body>
+</html>
+
+
+
