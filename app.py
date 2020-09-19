@@ -1,13 +1,16 @@
+#importato la librerias
 from flask import Flask,request,url_for,flash,redirect
 from flask import render_template
 from flask_mysqldb import MySQL
+#configurar de la app
 app = Flask(__name__)
 app.config["MYSQL_HOST"]="localhost"
 app.config["MYSQL_USER"]="root"
 app.config["MYSQL_PASSWORD"]=""
 app.config["MYSQL_DB"]="contactos"
 mysql=MySQL(app)
-app.secret_key='mysecretKey'                    
+app.secret_key='mysecretKey'
+#abro el  metodo  POST y hace la url                    
 @app.route('/',methods=['GET','POST'])
 def login():
     error = None
