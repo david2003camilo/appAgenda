@@ -4,10 +4,27 @@ body{
     background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
     margin: 30px 0 0 0;
 }
-.titulo{
-    font-size: 60px;
-    margin: 30px 0 0 0;
+header img{
+    float: right;width: 160px; 
+}
+#recuadro{
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin:80px; padding:20px; border-radius:10px; box-shadow:0 0 5px #000;
+}
+header h1{
+    float: left; margin:0;}
+
+#usuario1{
+    margin:150px; padding:20px; border-radius:10px; box-shadow:0 0 5px #000;
+}
+
+.colorsecundario{
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

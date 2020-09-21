@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <title>LOGIN</title>
 </head>
 <body>
+    <div id="recuadro">
+    <header>
+        <h1>App Ding ding</h1>
+        <img src="../static/imagenes/agenda.png"><br>
+    </header>
+    <div id="usuario1">
     <div class="container">
-        <h1> App Ging ging <br> 
-            INGRESE USUARIO:</h1>
-        <form action="" method="POST">
-            <input type="text" placeholder="Usuario" name="usuario" value="{{request.form.usuario}}">        
-            <input type="password" placeholder="Contraseña" name="password" value="{{request.form.contraseña}}">        
-            <input class="btn btn-default" type="submit" value="Login">
+        <h2>INGRESE USUARIO:</h2>
+        <form  class="colorsecundario" action="" method="POST"> 
+            <div class="card card-body bg-transparent">
+            <input class="bg-transparent" type="text" placeholder="Usuario" name="usuario" value="{{request.form.usuario}}"> <br>       
+            <input class="bg-transparent" type="password" placeholder="Contraseña" name="password" value="{{request.form.contraseña}}"> <br>       
+            <input class="btn btn-outline-dark btn-lg btn-block" type="submit" value="INICIAR SESION"><br> 
+        </div>
         </form>
         {% if error %}
         <p class="error"><strong>error</strong>{{error}}</p>
         {% endif %}
+    </div>
     </div>   
+    </div>
 </body>
 </html>
 
