@@ -75,6 +75,55 @@ def eliminar(id):
     #direcciona a la pagina principal 
     return redirect(url_for('Index'))
 
+@app.route('/block',methods=['GET','POST'])
+def block():
+    cur=mysql.connection.cursor()
+    #comando que nos permite mostar el contenido es decir los datos 
+    cur.execute('SELECT * FROM block')
+    dato1=cur.fetchall()
+    return render_template('block.html',block = dato1)
+@app.route('/updateBlock',methods=['POST'])
+def agregar():
+    if request.method == 'POST':
+        titulo = request.form['titulo']
+        nota = request.form['nota']
+        cur= mysql.connection.cursor()
+        cur.execute("INSERT INTO block (TITULO,NOTA)VALUES(%s,%s)",(titulo,nota))
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for('block'))
+@app.route('/editarblock/<id>')
+def editarBlock(id):
+    cur=mysql.connection.cursor()
+    cur.execute('SELECT * FROM block WHERE id = %s',(id))
+    dato1= cur.fetchall()
+    return render_template('editar.html',block= dato1[0])
+@app.route('/actualizarBlock/<id>',methods= ['POST'])
+def actualizarBlock(id):
+    if request.method == 'POST':
+        nombre=request.form['nombre']
+        numero=request.form['numero']
+        email=request.form['email']
+        cur=mysql.connection.cursor()
+        #comando de mysql que permite actualizar los datos 
+        cur.execute("""
+            UPDATE mycontactos
+            SET nombre =%s,
+                email=%s,
+                numero=%s
+            WHERE id=%s
+        """,(nombre, email,numero,id))
+        mysql.connection.commit()
+        #direcciona a la pagina principal 
+        return redirect(url_for('block'))
+@app.route('/eliminarblock/<string:id>')
+def eliminarBlock(id):
+    cur= mysql.connection.cursor()
+    cur.execute('DELETE FROM block WHERE id = {0}'.format(id))
+    mysql.connection.commit()
+    #direcciona a la pagina principal 
+    return redirect(url_for('block'))
+
 if __name__=="__main__":
     app.run(port=1406,debug=True)
 
