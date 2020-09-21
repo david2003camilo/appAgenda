@@ -101,18 +101,16 @@ def editarBlock(id):
 @app.route('/actualizarBlock/<id>',methods= ['POST'])
 def actualizarBlock(id):
     if request.method == 'POST':
-        nombre=request.form['nombre']
-        numero=request.form['numero']
-        email=request.form['email']
+        titulo=request.form['titulo']
+        nota=request.form['nota']
         cur=mysql.connection.cursor()
         #comando de mysql que permite actualizar los datos 
         cur.execute("""
-            UPDATE mycontactos
-            SET nombre =%s,
-                email=%s,
-                numero=%s
+            UPDATE block
+            SET titulo =%s,
+                nota=%s
             WHERE id=%s
-        """,(nombre, email,numero,id))
+        """,(titulo,nota,id))
         mysql.connection.commit()
         #direcciona a la pagina principal 
         return redirect(url_for('block'))
