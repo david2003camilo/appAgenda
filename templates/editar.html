@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="col-md-4 offset-md-4">
+    <!--nos permiten colocar los bordes en donde uno quiera-->
+    <div class="card card-body">
+    <!--el metodo post sirve para conectar el formulario con python-->
+    <form action="/actualizarBlock/{{block.0}}" method="POST">
+        <div class="form-group">
+            <input type="text" name="titulo" placeholder="TITULO" value="{{ block.1}}" class="form-control" >
+        </div>
+        <div class="form-group">
+        <input type="text" name="nota" placeholder="NOTA" value="{{block.2}}" class="form-control">
+        </div>
+        <div class="form-group">
+        <!--donde dice clas="btn btn " significa los colores que le podemos asignar-->
+        <button type="submit" class="btn btn-success btn-block"  class="form-control">
+         Save
+        </button>
+    </form>
+    </div>
+</div>
+{% endblock %}
