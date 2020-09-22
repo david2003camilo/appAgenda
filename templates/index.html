@@ -1,35 +1,49 @@
 {% extends "layout.html" %}
 {% block body %}
-  <div class="col-md-15">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>update</title>
+</head>
+
+<body>
+  <div id="recuadro">
+    <div class="col-md-15">
     </div>
     <div class="card card-body">
-        <form action="{{url_for('anadirContacto')}}" method="POST">
-          <div class="form-group">
-            <input type="text" class="form-control" name="nombre" placeholder="nombre">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="numero" placeholder="numero">
-          </div>
-          <button class="btn btn-primary btn-lg btn-block">
-            Save 
-          </button>
-        </form>
-          <table class="table table-striped table-hover table-bordered table-sm bg-white">
-          <div class="col-md-7">
-            <tbody>
-            <tr>
-              <td>Nombre: </td>
-              <td>Numero:</td>
-              <td>Email: </td>
-              <td>OPCIONES: </td>
-              <br>
-              <br>
-            </tr>
+      <form class="colorsecundario" action="{{url_for('anadirContacto')}}" method="POST">
+        <div class="form-group">
+          <input class="bg-transparent" type="text" class="form-control" name="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+          <input class="bg-transparent" type="text" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input class="bg-transparent" type="text" class="form-control" name="numero" placeholder="Numero">
+        </div>
+        <button class="btn btn-outline-dark btn-lg btn-block">
+          Guardar
+        </button>
+    </div>
+    </form>
+    <table class="table table-striped table-hover table-bordered table-sm bg-white">
+      <div class="col-md-7">
+        <tbody><br>
+
+          <tr>
+            <h2>Contactos</h2>
+            <td>Nombre: </td>
+            <td>Numero:</td>
+            <td>Email: </td>
+            <td>Opciones: </td>
             <br>
             <br>
+          </tr>
+          <br>
+          <br>
           {% for contactos in contactos %}
           <tr>
             <td>{{contactos.1}}</td>
@@ -42,8 +56,12 @@
           </tr>
           <br>
           {% endfor %}
-          </tbody>
-        </table>
-        </div>
-      </div>
-    {% endblock %}
+        </tbody>
+    </table>
+  </div>
+
+  </div>
+  {% endblock %}
+</body>
+
+</html>
