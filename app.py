@@ -13,6 +13,7 @@ app.secret_key='mysecretKey'
 #abro el  metodo  POST y hace la url                    
 @app.route('/',methods=['GET','POST'])
 def login():
+    #login d la pagina 
     error = None
     if request.method =="POST":
         if request.form['usuario'] != 'admin' or request.form['password'] != 'admin':
